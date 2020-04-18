@@ -1,6 +1,6 @@
+import _ from 'lodash';
 import { ControlledSlider } from 'mysterybear-react-components';
-import React, { useState, useCallback } from 'react';
-import _ from 'lodash'
+import React, { useCallback, useState } from 'react';
 
 
 const App = () => {
