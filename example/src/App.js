@@ -1,10 +1,26 @@
-import React from 'react'
+import { ControlledSlider } from 'mysterybear-react-components';
+import React, { useState, useCallback } from 'react';
+import _ from 'lodash'
 
-import { ExampleComponent } from 'mysterybear-react-components'
-import 'mysterybear-react-components/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+
+  const [value, setValue] = useState(50)
+
+  const setter = useCallback(_.throttle(v => setValue(v)), [])
+
+  return (
+    <>
+      <pre>{value}</pre>
+      <ControlledSlider
+        name="someValue"
+        value={value}
+        wait={500}
+        setter={setter}
+      />
+      <button onClick={() => { setValue(75) }}>75</button>
+    </>
+  )
 }
 
 export default App
